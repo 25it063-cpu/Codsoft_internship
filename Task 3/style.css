@@ -1,0 +1,277 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+body{
+    min-height: 100vh;
+    background: 
+        linear-gradient(
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.15)
+        ),
+        url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.calculator {
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.9);
+}
+
+
+
+.theme-toggler {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 52px;
+    height: 26px;
+    background: #111;
+    border-radius: 20px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.theme-toggler .switch {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.35s ease;
+}
+
+.theme-toggler.active .switch {
+    transform: translateX(26px);
+}
+
+#display {
+    margin: 0 10px;
+    height: 150px;
+    max-width: 270px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+
+#display::-webkit-scrollbar{
+    display: block;
+    height: 3px;
+}
+
+button{
+    height: 60px;
+    width: 60px;
+    border: 0;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+}
+
+button#equal {
+    height: 130px;
+}
+
+/* ---------------- LIGHT MODE COLORS ---------------- */
+
+.calculator{
+    background-color: #fff;
+}
+
+.calculator #display{
+    color: #3f3a36;
+}
+
+.calculator button#clear {
+    background-color: #F4D6B0;   /* warm beige */
+    color: #5A4A42;
+}
+
+.calculator button.btn-number {
+    background-color: #CFE9F6;   /* baby blue */
+    color: #5A4A42;
+}
+
+.calculator button.btn-operator{
+    background-color: #FFD6DC;   /* blush pink */
+    color: #5A4A42;
+}
+
+.calculator button.btn-equal {
+    background-color: #CFF3E8;   /* mint */
+    color: #5A4A42;
+}
+
+/* ---------------- DARK MODE ---------------- */
+
+.calculator.dark {
+    background: rgba(18, 24, 28, 0.95);
+}
+
+.calculator.dark #display{
+    color: #F7EFEA;
+}
+
+.calculator.dark button#clear{
+    background-color: #4A3A2A;   /* warm brown */
+    color: #F7EFEA;
+}
+
+.calculator.dark button.btn-number {
+    background-color: #2F4A57;   /* dusty blue */
+    color: #F7EFEA;
+}
+
+.calculator.dark button.btn-operator {
+    background-color: #4A2F3C;   /* muted rose */
+    color: #F7EFEA;
+}
+
+.calculator.dark button.btn-equal {
+    background-color: #2F4A3D;   /* muted mint */
+    color: #F7EFEA;
+}
+
+/* ---------------- CAT ---------------- */
+
+.cat {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(50%);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Face */
+.cat .face {
+    width: 70px;
+    height: 45px;
+    background: #222;
+    border-radius: 22px;
+    position: relative;
+}
+
+/* Ears */
+.cat .ear {
+    width: 18px;
+    height: 18px;
+    background: #222;
+    position: absolute;
+    top: -8px;
+    border-radius: 4px;
+    transform: rotate(45deg);
+}
+
+.cat .ear.left { left: 8px; }
+.cat .ear.right { right: 8px; }
+
+/* Eyes */
+.cat .eye {
+    width: 6px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 16px;
+}
+
+.cat .eye.left { left: 18px; }
+.cat .eye.right { right: 18px; }
+
+/* Nose */
+.cat .nose {
+    width: 6px;
+    height: 4px;
+    background: pink;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animation */
+@keyframes float {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -6px); }
+}
+
+.calculator.dark .cat .face,
+.calculator.dark .cat .ear {
+    background: #eee;
+}
+
+.calculator.dark .cat .eye {
+    background: #111;
+}
+
+
+
+.cat .eye {
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 95%, 100% {
+        transform: scaleY(1);
+    }
+    97% {
+        transform: scaleY(0.1);
+    }
+}
+
+
+.cat.happy {
+    animation: bounce 0.6s ease;
+}
+
+.cat.happy .eye {
+    height: 4px;
+}
+
+.cat.happy .nose {
+    background: #ff7aa2;
+}
+
+@keyframes bounce {
+    0%   { transform: translate(-50%, 0); }
+    30%  { transform: translate(-50%, -10px); }
+    60%  { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, -4px); }
+}
